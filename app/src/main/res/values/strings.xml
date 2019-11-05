@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">WakeOnLanRedirect</string>
+    <string name="toggle_redirect">Toggle Redirect</string>
+    <string name="change_port_number">Change port number</string>
+    <string name="apply">apply</string>
+    <string name="change_address_number">Change address number</string>
+</resources>
