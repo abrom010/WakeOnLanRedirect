@@ -26,15 +26,13 @@ public class PacketRedirect implements Runnable{
         try {
             InetAddress address = InetAddress.getByName(MainActivity.address);
             sendPacket = new DatagramPacket(receiveData, receiveData.length, address, port);
-            DatagramSocket socket = new DatagramSocket(null);
-            socket.setReuseAddress(true);
             InetSocketAddress socketAddress = new InetSocketAddress(port);
             while (!exit) {
-                socket.bind(socketAddress);
+                DatagramSocket socket = new DatagramSocket(socketAddress);
                 socket.receive(receivePacket);
                 socket.send(sendPacket);
+                socket.close();
             }
-            socket.close();
 
         } catch(IOException e){
             e.printStackTrace();
